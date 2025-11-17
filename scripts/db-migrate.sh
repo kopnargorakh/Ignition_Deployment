@@ -25,15 +25,25 @@ if [ ! -f "$CONFIG_FILE" ]; then
   exit 1
 fi
 
-# Parse database configuration
-DB_HOST=$(grep "host:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
-DB_PORT=$(grep "port:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
-DB_NAME=$(grep "name:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
-DB_USER=$(grep "username:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
-DB_PASS=$(grep "password:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+# Check for environment-specific DB_URL variable (CI/CD)
+ENV_VAR_NAME="${ENVIRONMENT^^}_DB_URL"  # Convert to uppercase
+DB_URL_FROM_ENV="${!ENV_VAR_NAME}"
 
-# Construct database URL
-DB_URL="postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable"
+if [ -n "$DB_URL_FROM_ENV" ]; then
+  # Use environment variable if set (preferred in CI/CD)
+  DB_URL="$DB_URL_FROM_ENV"
+  DB_NAME=$(echo "$DB_URL" | sed -n 's#.*/\([^?]*\).*#\1#p')
+else
+  # Fall back to parsing config file
+  DB_HOST=$(grep "host:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+  DB_PORT=$(grep "port:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+  DB_NAME=$(grep "name:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+  DB_USER=$(grep "username:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+  DB_PASS=$(grep "password:" "$CONFIG_FILE" | grep -A 5 "database:" | tail -1 | awk '{print $2}')
+
+  # Construct database URL
+  DB_URL="postgres://${DB_USER}:${DB_PASS}@${DB_HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable"
+fi
 
 MIGRATIONS_PATH="$PROJECT_ROOT/migrations"
 
