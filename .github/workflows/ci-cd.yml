@@ -72,6 +72,12 @@ jobs:
           name: config
           path: config/
 
+      - name: Upload Migrations
+        uses: actions/upload-artifact@v4
+        with:
+          name: migrations
+          path: migrations/
+
   deploy-dev:
     name: Deploy to Development
     runs-on: self-hosted
