@@ -95,6 +95,7 @@ jobs:
           DEV_GATEWAY_URL: ${{ secrets.DEV_GATEWAY_URL }}
           DEV_GATEWAY_USER: ${{ secrets.DEV_GATEWAY_USER }}
           DEV_GATEWAY_PASS: ${{ secrets.DEV_GATEWAY_PASS }}
+          DEV_DB_URL: ${{ secrets.DEV_DB_URL }}
 
   deploy-staging:
     name: Deploy to Staging
