@@ -7,14 +7,14 @@ on:
   push:
     branches:
       - develop
-      - 'release/**'
+      - release/**
       - main
     tags:
-      - 'v*'
+      - v*
   pull_request:
     branches:
       - develop
-      - 'release/**'
+      - release/**
       - main
 
 env:
