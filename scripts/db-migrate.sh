@@ -26,8 +26,8 @@ if [ ! -f "$CONFIG_FILE" ]; then
 fi
 
 # Check for environment-specific DB_URL variable (CI/CD)
-ENV_VAR_NAME="${ENVIRONMENT^^}_DB_URL"  # Convert to uppercase
-DB_URL_FROM_ENV="${!ENV_VAR_NAME}"
+ENV_VAR_NAME="$(echo ${ENVIRONMENT} | tr '[:lower:]' '[:upper:]')_DB_URL"  # Convert to uppercase
+DB_URL_FROM_ENV="$(eval echo \$${ENV_VAR_NAME})"
 
 if [ -n "$DB_URL_FROM_ENV" ]; then
   # Use environment variable if set (preferred in CI/CD)
