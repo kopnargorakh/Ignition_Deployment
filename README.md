@@ -1,11 +1,11 @@
 # Ignition 8.3 GitFlow CI/CD Setup
 
-Complete GitFlow-based CI/CD pipeline for Ignition SCADA projects using Azure DevOps.
+Complete GitFlow-based CI/CD pipeline for Ignition SCADA projects using GitHub Actions.
 
 ## Repository
 
 ```
-git@ssh.dev.azure.com:v3/Wilms-ICT/poc_ignition_8.3/poc_ignition_8.3
+git@github.com:Mustry-Solutions/ignition-83-cicd.git
 ```
 
 ## Architecture Overview
@@ -20,10 +20,11 @@ This repository implements a complete GitFlow workflow with automated deployment
 
 ```
 .
-├── azure-pipelines.yml           # Main CI/CD pipeline
+├── .github/
+│   └── workflows/
+│       ├── ci-cd.yml             # Main CI/CD pipeline
+│       └── promote-release.yml   # Release promotion pipeline
 ├── docker-compose.yml            # Multi-environment Docker setup
-├── .azuredevops/
-│   └── promote-release.yml       # Release promotion pipeline
 ├── projects/
 │   └── example-project/          # Ignition projects
 │       ├── project.json
@@ -146,35 +147,36 @@ feature/* → develop → release/* → main
      ```
    - Auto-deploys to Production
 
-## Azure DevOps Setup
+## GitHub Actions Setup
 
 ### Prerequisites
 
-1. **Azure DevOps Project**: Wilms-ICT/poc_ignition_8.3
-2. **Repository**: Already configured at specified SSH URL
-3. **Service Connections**: Configure for target environments (if deploying to remote)
+1. **GitHub Repository**: Mustry-Solutions/ignition-83-cicd
+2. **GitHub Actions**: Enabled by default
+3. **Secrets**: Configure in repository settings for sensitive credentials
 
-### Pipeline Configuration
+### Workflow Configuration
 
-#### Main Pipeline (`azure-pipelines.yml`)
+#### Main Pipeline (`.github/workflows/ci-cd.yml`)
 
 This is automatically triggered on:
 - Push to `develop`, `release/*`, `main`
 - Tags matching `v*`
 - Pull requests
 
-#### Promote Release Pipeline (`.azuredevops/promote-release.yml`)
+#### Promote Release Workflow (`.github/workflows/promote-release.yml`)
 
 Manually triggered workflow to promote releases:
-1. Go to Pipelines → Promote Release
-2. Select branch (e.g., `release/1.0.0`)
-3. Enter tag (e.g., `v1.0.0`)
-4. Choose whether to merge to main
-5. Run
+1. Go to Actions → Promote Release
+2. Click "Run workflow"
+3. Enter release branch (e.g., `release/1.0.0`)
+4. Enter tag (e.g., `v1.0.0`)
+5. Choose whether to merge to main
+6. Click "Run workflow"
 
-### Required Pipeline Variables
+### Required GitHub Secrets
 
-Configure these in Azure DevOps → Pipelines → Library or Environment Variables:
+Configure these in Settings → Secrets and variables → Actions:
 
 #### Development Environment
 - `DEV_GATEWAY_URL`: http://localhost:8088
@@ -193,16 +195,17 @@ Configure these in Azure DevOps → Pipelines → Library or Environment Variabl
 - `PROD_GATEWAY_PASS`: prod-password
 - `PROD_DB_URL`: postgres://ignition:ignition-db-password@localhost:5432/ignition_prod?sslmode=disable
 
-**Note**: Use Azure DevOps Environments and Secrets for secure credential management.
+**Note**: Use GitHub Environments and Secrets for secure credential management.
 
-### Setting Up Environments in Azure DevOps
+### Setting Up Environments in GitHub
 
-1. Go to **Pipelines** → **Environments**
+1. Go to **Settings** → **Environments**
 2. Create three environments:
-   - `Development` (no approval required)
-   - `Staging` (optional approval)
-   - `Production` (approval required)
-3. Add variables/secrets to each environment
+   - `development` (no approval required)
+   - `staging` (optional approval)
+   - `production` (approval required)
+3. Add secrets to each environment as needed
+4. For production, configure required reviewers under environment protection rules
 
 ## Database Migrations
 
