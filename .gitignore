@@ -10,6 +10,7 @@ backups/*/*
 !backups/dev/.gitkeep
 !backups/staging/.gitkeep
 !backups/prod/.gitkeep
+!backups/local/.gitkeep
 
 # Ignition Local Configuration (per curated mounts approach)
 # See: https://docs.inductiveautomation.com/docs/8.3/tutorials/version-control-guide
@@ -18,17 +19,26 @@ backups/*/*
 **/conversion-report.txt
 **/.resources/
 
-# Environment-specific deployments (not version controlled)
-# Only dev config/projects are version controlled as templates
-# Staging and prod are managed through CI/CD pipeline
+# Version-Controlled Gateway Configuration
+# config/gateway/ - Source of truth for gateway config (version controlled)
+# Note: Runtime-specific paths are excluded below via **/config/local patterns
 
-# Staging and Production - exclude everything
+# Environment-specific deployments (not version controlled)
+# - ignition-local: Local development workspace (config can diverge from version control)
+# - ignition-dev/staging/prod: CI/CD deployment targets (receive config from config/gateway/)
+
+# CI/CD deployment environments - exclude everything
+services/ignition-dev/
 services/ignition-staging/
 services/ignition-prod/
 
-# Dev, Staging, Prod - exclude deployed projects
-services/ignition-dev/projects/*
-!services/ignition-dev/projects/.gitkeep
+# Local development environment - exclude entire config (can diverge from source)
+services/ignition-local/config/
+!services/ignition-local/config/.gitkeep
+services/ignition-local/projects/*
+
+# Requirements
+requirements/
 
 # Ignition runtime data (never commit these)
 ignition-data/

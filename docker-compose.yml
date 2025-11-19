@@ -2,17 +2,77 @@
 # Documentation: https://docs.inductiveautomation.com/docs/8.3/platform/docker-image
 ---
 services:
-  # Development Environment - deploys from 'develop' branch
+  # Local Development Environment - for active feature development
+  # - Projects: Direct mount of ./projects/ (version controlled)
+  # - Config: Copied from config/gateway/ but can diverge (gitignored)
+  # - Use this environment for developing on feature branches
+  ignition-local:
+    image: inductiveautomation/ignition:8.3.1
+    container_name: ignition-local
+    restart: unless-stopped
+    ports:
+      - "9088:8088"  # HTTP port
+      - "9043:8043"  # HTTPS port
+      - "9060:8060"  # Gateway Network port
+    volumes:
+      # Version-controlled projects - changes here go to git
+      - ./projects:/usr/local/bin/ignition/data/projects
+      # Local config - initialized from config/gateway/, can diverge for dev needs
+      - ./services/ignition-local/config:/usr/local/bin/ignition/data/config
+      - ./backups/local:/backups
+      # Secrets management
+      - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
+    environment:
+      - ACCEPT_IGNITION_EULA=Y
+      - GATEWAY_ADMIN_USERNAME=admin
+      - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
+      - IGNITION_EDITION=standard
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer
+      - IGNITION_UID=1000
+      - IGNITION_GID=1000
+      - TZ=Europe/Brussels
+      - GATEWAY_NETWORK_ENABLED=true
+      - GATEWAY_RESTORE_DISABLED=true
+    command: >
+      -n ignition-local
+      -m 4096
+      --
+      wrapper.java.initmemory=1024
+      -Dignition.allowunsignedmodules=true
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8088/StatusPing"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+    deploy:
+      resources:
+        limits:
+          memory: 4G
+        reservations:
+          memory: 2G
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    networks:
+      - ignition-network
+
+  # Development Environment - deploys from 'develop' branch (CI/CD target)
+  # - Projects: Receives packaged .zip files from GitHub Actions
+  # - Config: Receives config/gateway/ via CI/CD deployment
+  # - Do not edit directly - managed by automation
   ignition-dev:
     image: inductiveautomation/ignition:8.3.1
     container_name: ignition-dev
     restart: unless-stopped
     ports:
-      - "8088:8088"  # HTTP port
+      - "7088:8088"  # HTTP port
       - "7043:8043"  # HTTPS port
       - "7060:8060"  # Gateway Network port
     volumes:
-      # Curated configuration mounts (additive approach)
+      # CI/CD deployment targets - managed by automation
       - ./services/ignition-dev/config:/usr/local/bin/ignition/data/config
       - ./services/ignition-dev/projects:/usr/local/bin/ignition/data/projects
       - ./backups/dev:/backups
@@ -55,7 +115,10 @@ services:
     networks:
       - ignition-network
 
-  # Staging Environment - deploys from 'release/*' branches
+  # Staging Environment - deploys from 'release/*' branches (CI/CD target)
+  # - Projects: Receives packaged .zip files from GitHub Actions
+  # - Config: Receives config/gateway/ via CI/CD deployment
+  # - Do not edit directly - managed by automation
   ignition-staging:
     image: inductiveautomation/ignition:8.3.1
     container_name: ignition-staging
@@ -108,7 +171,10 @@ services:
     networks:
       - ignition-network
 
-  # Production Environment - deploys from 'main' branch with tags
+  # Production Environment - deploys from 'main' branch with tags (CI/CD target)
+  # - Projects: Receives packaged .zip files from GitHub Actions
+  # - Config: Receives config/gateway/ via CI/CD deployment
+  # - Do not edit directly - managed by automation
   ignition-prod:
     image: inductiveautomation/ignition:8.3.1
     container_name: ignition-prod

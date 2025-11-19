@@ -60,8 +60,48 @@ else
   echo ""
 fi
 
-# Step 3: Run database migrations
-echo "Step 3: Running database migrations..."
+# Step 3: Deploy gateway configuration
+echo "Step 3: Deploying gateway configuration..."
+CONFIG_SOURCE="$PROJECT_ROOT/config/gateway"
+if [ -d "$CONFIG_SOURCE" ]; then
+  case "$ENVIRONMENT" in
+    dev|development)
+      ENV_DIR="ignition-dev"
+      ;;
+    staging)
+      ENV_DIR="ignition-staging"
+      ;;
+    prod|production)
+      ENV_DIR="ignition-prod"
+      ;;
+    *)
+      echo "Error: Unknown environment: $ENVIRONMENT"
+      exit 1
+      ;;
+  esac
+
+  CONFIG_TARGET="$PROJECT_ROOT/services/$ENV_DIR/config"
+  echo "  Copying config from: config/gateway/"
+  echo "  To: services/$ENV_DIR/config/"
+
+  # Create target directory
+  mkdir -p "$CONFIG_TARGET"
+
+  # Copy configuration files (rsync preserves structure and only copies changes)
+  rsync -av --delete \
+    --exclude='local/' \
+    --exclude='resources/local/' \
+    --exclude='.resources/' \
+    "$CONFIG_SOURCE/" "$CONFIG_TARGET/"
+
+  echo "✓ Gateway configuration deployed"
+else
+  echo "⚠ Gateway configuration not found in config/gateway/, skipping..."
+fi
+echo ""
+
+# Step 4: Run database migrations
+echo "Step 4: Running database migrations..."
 if [ -f "$SCRIPT_DIR/db-migrate.sh" ]; then
   "$SCRIPT_DIR/db-migrate.sh" "$ENVIRONMENT" up
   echo "✓ Database migrations completed"
@@ -70,8 +110,8 @@ else
 fi
 echo ""
 
-# Step 4: Deploy projects
-echo "Step 4: Deploying Ignition projects..."
+# Step 5: Deploy projects
+echo "Step 5: Deploying Ignition projects..."
 BUILD_DIR="$PROJECT_ROOT/build"
 if [ -d "$BUILD_DIR" ]; then
   for project_zip in "$BUILD_DIR"/*.zip; do
@@ -87,8 +127,8 @@ else
 fi
 echo ""
 
-# Step 5: Run smoke tests
-echo "Step 5: Running smoke tests..."
+# Step 6: Run smoke tests
+echo "Step 6: Running smoke tests..."
 if [ -f "$SCRIPT_DIR/smoke-test.sh" ]; then
   "$SCRIPT_DIR/smoke-test.sh" "$ENVIRONMENT"
   echo "✓ Smoke tests passed"

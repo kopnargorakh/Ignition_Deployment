@@ -92,26 +92,73 @@ if [ "$IS_ZIP" = true ]; then
   rm -rf "$TEMP_DIR"
 fi
 
+# Determine gateway URL based on environment
+case "$ENVIRONMENT" in
+  dev|development)
+    GATEWAY_URL="http://localhost:7088"
+    ;;
+  staging)
+    GATEWAY_URL="http://localhost:8188"
+    ;;
+  prod|production)
+    GATEWAY_URL="http://localhost:8288"
+    ;;
+esac
+
+# Function to wait for gateway to be ready
+wait_for_gateway() {
+  local max_attempts=60
+  local attempt=1
+  echo "Waiting for gateway to be ready..."
+
+  while [ $attempt -le $max_attempts ]; do
+    if curl -s -f "${GATEWAY_URL}/StatusPing" > /dev/null 2>&1; then
+      echo "Gateway is ready!"
+      return 0
+    fi
+    echo "  Attempt $attempt/$max_attempts..."
+    sleep 2
+    attempt=$((attempt + 1))
+  done
+
+  echo "Warning: Gateway did not become ready within expected time"
+  return 1
+}
+
+# Function to trigger Ignition scans
+trigger_ignition_scans() {
+  echo "Triggering Ignition resource scans..."
+
+  # Trigger config scan
+  echo "  - Scanning gateway configuration..."
+  if curl -s -X POST "${GATEWAY_URL}/data/api/v1/scan/config" > /dev/null 2>&1; then
+    echo "    ✓ Config scan triggered"
+  else
+    echo "    ⚠ Config scan failed (gateway may handle this automatically)"
+  fi
+
+  # Trigger projects scan
+  echo "  - Scanning projects..."
+  if curl -s -X POST "${GATEWAY_URL}/data/api/v1/scan/projects" > /dev/null 2>&1; then
+    echo "    ✓ Projects scan triggered"
+  else
+    echo "    ⚠ Projects scan failed (gateway may handle this automatically)"
+  fi
+}
+
 # Restart container to reload project
 echo "Restarting gateway to load project..."
 docker restart "$CONTAINER_NAME" > /dev/null
+
+# Wait for gateway and trigger scans
+if wait_for_gateway; then
+  trigger_ignition_scans
+fi
 
 echo ""
 echo "✓ Project deployed successfully!"
 echo "  Project: $PROJECT_NAME"
 echo "  Environment: $ENVIRONMENT ($ENV_DIR)"
 echo "  Location: services/$ENV_DIR/projects/$PROJECT_NAME"
-echo ""
-echo "Gateway is restarting... wait ~30 seconds then access:"
-case "$ENVIRONMENT" in
-  dev|development)
-    echo "  http://localhost:8088/web/home"
-    ;;
-  staging)
-    echo "  http://localhost:8188/web/home"
-    ;;
-  prod|production)
-    echo "  http://localhost:8288/web/home"
-    ;;
-esac
+echo "  Gateway URL: ${GATEWAY_URL}/web/home"
 echo ""

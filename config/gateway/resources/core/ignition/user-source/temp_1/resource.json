@@ -1,0 +1,19 @@
+{
+  "scope": "A",
+  "description": "Temporary user source profile created during password reset",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "config.json",
+    "users.json"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "system-init",
+      "timestamp": "2025-11-19T08:02:56Z"
+    },
+    "uuid": "94113835-ad68-4616-9c57-9ed00fc5797a",
+    "lastModificationSignature": "37f10c6d053024e6041b3fa3bb302285949660f3886070022f859a36504ee2b8"
+  }
+}
