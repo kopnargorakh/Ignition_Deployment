@@ -4,7 +4,8 @@
 services:
   # Local Development Environment - for active feature development
   # - Projects: Direct mount of ./projects/ (version controlled)
-  # - Config: Copied from config/gateway/ but can diverge (gitignored)
+  # - Config: Direct mount of ./config/gateway/ (version controlled)
+  # - Changes made here go directly into version control
   # - Use this environment for developing on feature branches
   ignition-local:
     image: inductiveautomation/ignition:8.3.1
@@ -15,10 +16,10 @@ services:
       - "9043:8043"  # HTTPS port
       - "9060:8060"  # Gateway Network port
     volumes:
-      # Version-controlled projects - changes here go to git
+      # Version-controlled projects - changes here go directly to git
       - ./projects:/usr/local/bin/ignition/data/projects
-      # Local config - initialized from config/gateway/, can diverge for dev needs
-      - ./services/ignition-local/config:/usr/local/bin/ignition/data/config
+      # Version-controlled config - changes here go directly to git
+      - ./config/gateway:/usr/local/bin/ignition/data/config
       - ./backups/local:/backups
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro

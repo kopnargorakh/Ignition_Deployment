@@ -1,16 +1,16 @@
 {
   "users": [
     {
-      "uuid": "f6a21fa7-c2c3-44c7-b1d2-8a18ca04f913",
+      "uuid": "0ab32bb4-f8b8-4c32-a1cb-b28733d127f2",
       "username": "admin",
       "schedule": "Always",
-      "password": "[4FC8AB5F]e2f3d2304ffa07c360810ac40a249eeb92a49368830d8ffaa9b4b0086e523123",
-      "passwordDate": "20251118.210203999+0100",
+      "password": "[55C1848E]0a9f4c7180a0aec75d6265ce7c8ad5f121b59baf8b75960189a1a7b670cfa6ab",
+      "passwordDate": "20251119.163047788+0100",
       "passwordHistory": [],
-      "createdDate": "20251118.210203998+0100",
-      "lastModifiedDate": "20251118.210203998+0100",
+      "createdDate": "20251119.163047788+0100",
+      "lastModifiedDate": "20251119.163047788+0100",
       "roles": [
-        "2580103b-aee9-4b35-8569-68ac84cfb2bc"
+        "39b44b63-d749-48e4-ae71-175d45d2a0d4"
       ],
       "extraProps": [],
       "scheduleAdjustments": [],
@@ -19,10 +19,10 @@
   ],
   "roles": [
     {
-      "uuid": "2580103b-aee9-4b35-8569-68ac84cfb2bc",
+      "uuid": "39b44b63-d749-48e4-ae71-175d45d2a0d4",
       "rolename": "Administrator",
-      "createdDate": "20251118.210203998+0100",
-      "lastModifiedDate": "20251118.210203998+0100"
+      "createdDate": "20251119.163047788+0100",
+      "lastModifiedDate": "20251119.163047788+0100"
     }
   ]
 }

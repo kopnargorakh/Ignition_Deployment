@@ -1,0 +1,16 @@
+{
+  "scope": "A",
+  "version": 1,
+  "restricted": false,
+  "overridable": true,
+  "files": [
+    "uuid.txt"
+  ],
+  "attributes": {
+    "lastModification": {
+      "actor": "default",
+      "timestamp": "2025-11-19T15:30:51Z"
+    },
+    "lastModificationSignature": "7ffbc6ee4f46b8e724e1d681676b331167cd54c442096b14eac4d323cd61dc42"
+  }
+}
