@@ -68,9 +68,9 @@ services:
     container_name: ignition-dev
     restart: unless-stopped
     ports:
-      - "7088:8088"  # HTTP port
-      - "7043:8043"  # HTTPS port
-      - "7060:8060"  # Gateway Network port
+      - "8088:8088"  # HTTP port
+      - "8043:8043"  # HTTPS port
+      - "8060:8060"  # Gateway Network port
     volumes:
       # CI/CD deployment targets - managed by automation
       - ./services/ignition-dev/config:/usr/local/bin/ignition/data/config
