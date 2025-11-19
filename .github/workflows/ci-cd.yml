@@ -21,6 +21,20 @@ env:
   BUILD_CONFIGURATION: Release
 
 jobs:
+  check-branch-policy:
+    name: Check Branch Policy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request' && github.base_ref == 'main'
+    steps:
+      - name: Ensure PR to main is from release branch
+        run: |
+          if [[ ! "${{ github.head_ref }}" =~ ^release/ ]]; then
+            echo "❌ Error: Pull requests to main must come from release/* branches"
+            echo "Current source branch: ${{ github.head_ref }}"
+            exit 1
+          fi
+          echo "✅ Branch policy check passed: ${{ github.head_ref }} → main"
+
   build:
     name: Build and Validate
     runs-on: ubuntu-latest
@@ -56,29 +70,15 @@ jobs:
 
           ls -lh build/
 
-      - name: Upload Build Artifacts
-        uses: actions/upload-artifact@v4
+      - name: Cache Build Artifacts
+        uses: actions/cache/save@v4
         with:
-          name: ignition-projects
-          path: build/
-
-      - name: Upload Scripts
-        uses: actions/upload-artifact@v4
-        with:
-          name: scripts
-          path: scripts/
-
-      - name: Upload Config
-        uses: actions/upload-artifact@v4
-        with:
-          name: config
-          path: config/
-
-      - name: Upload Migrations
-        uses: actions/upload-artifact@v4
-        with:
-          name: migrations
-          path: migrations/
+          key: build-${{ github.sha }}
+          path: |
+            build/
+            scripts/
+            config/
+            migrations/
 
   deploy-dev:
     name: Deploy to Development
@@ -89,14 +89,19 @@ jobs:
       name: development
 
     steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
+      - name: Restore Build Cache
+        uses: actions/cache/restore@v4
+        with:
+          key: build-${{ github.sha }}
+          path: |
+            build/
+            scripts/
+            config/
+            migrations/
 
       - name: Deploy to Development Gateway
         run: |
           set -e
-          rm -rf build
-          mv ignition-projects build
           chmod +x ./scripts/*.sh
           echo "Deploying to Development environment..."
           ./scripts/deploy.sh dev
@@ -115,8 +120,15 @@ jobs:
       name: staging
 
     steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
+      - name: Restore Build Cache
+        uses: actions/cache/restore@v4
+        with:
+          key: build-${{ github.sha }}
+          path: |
+            build/
+            scripts/
+            config/
+            migrations/
 
       - name: Run Database Migration
         run: |
@@ -130,8 +142,6 @@ jobs:
       - name: Deploy to Staging Gateway
         run: |
           set -e
-          rm -rf build
-          mv ignition-projects build
           chmod +x ./scripts/*.sh
           echo "Deploying to Staging environment..."
           ./scripts/deploy.sh staging
@@ -150,8 +160,15 @@ jobs:
       name: production
 
     steps:
-      - name: Download Artifacts
-        uses: actions/download-artifact@v4
+      - name: Restore Build Cache
+        uses: actions/cache/restore@v4
+        with:
+          key: build-${{ github.sha }}
+          path: |
+            build/
+            scripts/
+            config/
+            migrations/
 
       - name: Backup Production Gateway
         run: |
@@ -176,8 +193,6 @@ jobs:
       - name: Deploy to Production Gateway
         run: |
           set -e
-          rm -rf build
-          mv ignition-projects build
           chmod +x ./scripts/*.sh
           echo "Deploying to Production environment..."
           ./scripts/deploy.sh prod
