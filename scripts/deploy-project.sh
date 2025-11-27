@@ -150,18 +150,20 @@ trigger_ignition_scans() {
 
   # Trigger config scan
   echo "  - Scanning gateway configuration..."
-  if curl -s -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/config" > /dev/null 2>&1; then
+  CONFIG_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/config")
+  if [ "$CONFIG_HTTP_CODE" = "200" ]; then
     echo "    ✓ Config scan triggered"
   else
-    echo "    ⚠ Config scan failed (gateway may handle this automatically)"
+    echo "    ✗ Config scan failed (HTTP $CONFIG_HTTP_CODE)"
   fi
 
   # Trigger projects scan
   echo "  - Scanning projects..."
-  if curl -s -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/projects" > /dev/null 2>&1; then
+  PROJECTS_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/projects")
+  if [ "$PROJECTS_HTTP_CODE" = "200" ]; then
     echo "    ✓ Projects scan triggered"
   else
-    echo "    ⚠ Projects scan failed (gateway may handle this automatically)"
+    echo "    ✗ Projects scan failed (HTTP $PROJECTS_HTTP_CODE)"
   fi
 }
 
