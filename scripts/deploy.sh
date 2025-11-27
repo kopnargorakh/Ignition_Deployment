@@ -73,7 +73,7 @@ fi
 
 # Step 3: Deploy gateway configuration
 echo "Step 3: Deploying gateway configuration..."
-CONFIG_SOURCE="$PROJECT_ROOT/config/gateway"
+CONFIG_SOURCE="$DEPLOY_TARGET/config/gateway"
 if [ -d "$CONFIG_SOURCE" ]; then
   case "$ENVIRONMENT" in
     dev|development)
