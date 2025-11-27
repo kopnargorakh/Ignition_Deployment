@@ -97,6 +97,13 @@ if [ -d "$CONFIG_SOURCE" ]; then
   # Create target directory
   mkdir -p "$CONFIG_TARGET"
 
+  # Delete .resources cache so Ignition rebuilds it from actual files
+  # This prevents stale/deleted resources from being regenerated
+  if [ -d "$CONFIG_TARGET/resources/.resources" ]; then
+    echo "  Clearing resource cache (.resources/)..."
+    rm -rf "$CONFIG_TARGET/resources/.resources"
+  fi
+
   # Copy configuration files (rsync preserves structure and only copies changes)
   rsync -a --delete \
     --exclude='local/' \
