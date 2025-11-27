@@ -7,10 +7,10 @@
     "config.json"
   ],
   "attributes": {
+    "lastModificationSignature": "b2568c4ee20e148af096b52990626edc4ac1438df7c8eca362da81220f3ac47b",
     "lastModification": {
       "actor": "admin",
-      "timestamp": "2025-10-27T15:09:56Z"
-    },
-    "lastModificationSignature": "c219251a2d5cbce01983fee5b4bb45c8c7df00ccec1394622be1d30036d681ce"
+      "timestamp": "2025-11-27T14:46:12Z"
+    }
   }
 }

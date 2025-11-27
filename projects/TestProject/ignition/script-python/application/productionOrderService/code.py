@@ -1,1 +1,5 @@
-test = 9
+
+def getNumber():
+	test = 10
+	return test
+	

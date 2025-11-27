@@ -117,11 +117,12 @@ if [ -d "$CONFIG_SOURCE" ]; then
   # Trigger config scan to sync file system changes to Ignition
   echo "  Triggering Ignition config scan..."
   if [ -n "$API_KEY" ]; then
-    if curl -s -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/config" > /dev/null 2>&1; then
+    SCAN_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/config")
+    if [ "$SCAN_HTTP_CODE" = "200" ]; then
       echo "  ✓ Config scan triggered"
       sleep 2  # Give Ignition time to process
     else
-      echo "  ⚠ Config scan failed - gateway may need restart to pick up changes"
+      echo "  ✗ Config scan failed (HTTP $SCAN_HTTP_CODE)"
     fi
   else
     echo "  ⚠ No API key configured, skipping config scan"
