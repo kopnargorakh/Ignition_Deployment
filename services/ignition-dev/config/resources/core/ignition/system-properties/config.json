@@ -22,6 +22,6 @@
   "scheduledBackupsEnabled": false,
   "scriptMessageEncoding": "Protobuf",
   "secondsBeforeFailover": 60,
-  "systemName": "ignition-dev",
+  "systemName": "ignition-local",
   "useCondensedDialogFont": false
 }
