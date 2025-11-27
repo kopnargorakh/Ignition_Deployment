@@ -48,13 +48,26 @@
     "props.lastActivity": {
       "access": "SYSTEM",
       "persistent": false
+    },
+    "props.offline.capable": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.enabled": {
+      "access": "SYSTEM",
+      "persistent": false
+    },
+    "props.offline.lastSynced": {
+      "access": "SYSTEM",
+      "persistent": false
     }
   },
   "props": {
-    "address": "192.168.181.1",
+    "address": "192.168.216.1",
     "device": {},
     "geolocation": {},
-    "locale": "en-GB",
+    "locale": "en-BE",
+    "offline": {},
     "timeZoneId": "Europe/Brussels"
   }
 }
