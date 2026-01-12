@@ -2,6 +2,8 @@
   "allowIncoming": true,
   "allowJavaSerialization": false,
   "allowedProxyHops": 0,
+  "dataChannelQueueSize": 50,
+  "dataChannelThreadPoolMaxSize": 100,
   "incomingPingMaxMissed": 12,
   "incomingPingRateMillis": 5000,
   "incomingPingTimeoutMillis": 300,

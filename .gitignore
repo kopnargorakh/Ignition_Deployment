@@ -19,6 +19,10 @@ backups/*/*
 **/conversion-report.txt
 **/.resources/
 
+# Auto-created temp resources by Ignition
+**/user-source/temp*/
+**/identity-provider/temp*/
+
 # Version-Controlled Gateway Configuration
 # config/gateway/ - Source of truth for gateway config (version controlled)
 # Note: Runtime-specific paths are excluded below via **/config/local patterns

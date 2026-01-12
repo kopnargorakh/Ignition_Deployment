@@ -1,0 +1,153 @@
+{
+  "com.cirruslink.mqtt.distributor.gateway": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "b3d50508d45e1703dea19b80f6cdc3d7030c1f03",
+    "licenseAgreementHash": 2517188037
+  },
+  "com.cirruslink.mqtt.engine.gateway": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "b3d50508d45e1703dea19b80f6cdc3d7030c1f03",
+    "licenseAgreementHash": 1007003261
+  },
+  "com.cirruslink.mqtt.transmission.gateway": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "b3d50508d45e1703dea19b80f6cdc3d7030c1f03",
+    "licenseAgreementHash": 3030495539
+  },
+  "com.inductiveautomation.alarm-notification": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Alarm Notification-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.connectors.kafka": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Kafka Connector-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.eam": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Enterprise Administration-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.eventstream": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/EventStream-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.historian": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Historian-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.historian.sql": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/SQL Historian-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.jdbc.mariadb": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/MariaDB JDBC Driver Module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.jdbc.mssql": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/MSSQL JDBC Driver Module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.jdbc.postgresql": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/PostgreSQL JDBC Driver Module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.opcua": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/OPC-UA-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.opcua.drivers.ablegacy": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Allen-Bradley Drivers-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.bacnet": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/BACnet Driver-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.dnp3": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/DNP3-Driver.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.logix": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Logix Driver-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.micro800": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Micro800 Driver-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.mitsubishi": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Mitsubishi-Driver.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.modbus": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Modbus Driver v2-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.omron": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Omron-Driver.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.siemens": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Siemens Drivers-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.siemens-symbolic": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Siemens Enhanced Driver-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.opcua.drivers.tcpudp": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/UDP and TCP Drivers-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.perspective": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Perspective-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.reporting": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Reporting-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.sfc": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/SFC-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.sms-notification": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/SMS Notification-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.sqlbridge": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/SQL Bridge-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.symbol-factory": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Symbol Factory-module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.inductiveautomation.vision": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Vision-module.modl",
+    "onStartup": "disabled"
+  },
+  "com.inductiveautomation.webdev": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Web Developer Module.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
+  },
+  "com.kyvislabs.apexcharts": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl",
+    "onStartup": "enabled",
+    "certFingerprint": "aa764a6b335520cf9a211b313a27829b03049af9",
+    "licenseAgreementHash": 1305859277
+  }
+}

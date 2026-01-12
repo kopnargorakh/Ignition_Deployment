@@ -1,0 +1,18 @@
+[
+  {
+    "usr": {
+      "readOnly": true,
+      "dataType": "String"
+    },
+    "name": "MQTT Quickstart",
+    "tagType": "AtomicTag"
+  },
+  {
+    "usr": {
+      "readOnly": false,
+      "dataType": "Int4"
+    },
+    "name": "Example Tag",
+    "tagType": "AtomicTag"
+  }
+]

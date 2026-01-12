@@ -5,39 +5,104 @@
   "root": {
     "children": [
       {
-        "children": [
-          {
-            "meta": {
-              "name": "Label"
-            },
-            "props": {
-              "style": {
-                "classes": "h1",
-                "fontSize": 26
-              },
-              "text": "This is my header"
-            },
-            "type": "ia.display.label"
-          }
-        ],
         "meta": {
-          "name": "FlexContainer"
+          "name": "Label"
         },
         "position": {
-          "basis": "75px"
+          "height": 32,
+          "width": 119,
+          "x": 138,
+          "y": 106
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "expression": "0"
+              },
+              "transforms": [
+                {
+                  "code": "\treturn application.productionOrderService.getProductionOrderNumber()",
+                  "type": "script"
+                }
+              ],
+              "type": "expr"
+            }
+          }
+        },
+        "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 32,
+          "width": 119,
+          "x": 138,
+          "y": 149
         },
         "props": {
-          "justify": "center"
+          "text": 17
         },
-        "type": "ia.container.flex"
+        "type": "ia.display.label"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\tinfrastructure.amqp.testLib.testAMQP()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 249,
+          "y": 313
+        },
+        "props": {
+          "text": "jarfiles"
+        },
+        "type": "ia.input.button"
+      },
+      {
+        "events": {
+          "component": {
+            "onActionPerformed": {
+              "config": {
+                "script": "\ttest.pylib.runTests()"
+              },
+              "scope": "G",
+              "type": "script"
+            }
+          }
+        },
+        "meta": {
+          "name": "Button_0"
+        },
+        "position": {
+          "height": 34,
+          "width": 80,
+          "x": 249,
+          "y": 369
+        },
+        "props": {
+          "text": "pylib"
+        },
+        "type": "ia.input.button"
       }
     ],
     "meta": {
       "name": "root"
     },
-    "props": {
-      "direction": "column"
-    },
-    "type": "ia.container.flex"
+    "type": "ia.container.coord"
   }
 }

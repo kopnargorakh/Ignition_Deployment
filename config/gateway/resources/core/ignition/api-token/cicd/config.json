@@ -8,6 +8,15 @@
             "children": [
               {
                 "children": [],
+                "name": "Administrator"
+              }
+            ],
+            "name": "Roles"
+          },
+          {
+            "children": [
+              {
+                "children": [],
                 "name": "Access"
               },
               {

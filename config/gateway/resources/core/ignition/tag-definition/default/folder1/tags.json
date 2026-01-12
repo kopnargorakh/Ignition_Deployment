@@ -1,0 +1,16 @@
+[
+  {
+    "valueSource": "memory",
+    "name": "New Tag 1",
+    "tagType": "AtomicTag"
+  },
+  {
+    "valueSource": "memory",
+    "valuePersistence": "Configuration",
+    "dataType": "String",
+    "name": "New Tag",
+    "defaultValue": "Test123",
+    "value": "Test123",
+    "tagType": "AtomicTag"
+  }
+]

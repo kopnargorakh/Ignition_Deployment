@@ -85,6 +85,44 @@ echo "Test 4: Database Connectivity"
 # For now, we'll skip this test
 echo "  ⚠ Database test not implemented (requires gateway API access)"
 
+# Test 5: Pylib and Jar Tests via WebDev endpoint
+echo "Test 5: Pylib and Jar Tests"
+API_KEY=$(grep "api_key:" "$CONFIG_FILE" | head -1 | awk '{print $2}')
+if [ -n "$API_KEY" ]; then
+  TEST_RESPONSE=$(curl -s -H "X-Ignition-API-Token: $API_KEY" "${GATEWAY_URL}/system/webdev/TestProject/api/test" 2>/dev/null)
+  TEST_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" "${GATEWAY_URL}/system/webdev/TestProject/api/test")
+
+  if [ "$TEST_HTTP_CODE" = "200" ]; then
+    # Extract results from JSON and parse test output
+    RESULTS=$(echo "$TEST_RESPONSE" | sed 's/.*"results":"\(.*\)".*/\1/' | sed 's/\\n/\n/g')
+
+    # Check if any tests failed
+    if echo "$RESULTS" | grep -q "FAIL"; then
+      echo "  ✗ Some tests failed:"
+      echo "$RESULTS" | while IFS= read -r line; do
+        case "$line" in
+          "=== "*)  echo "  $line" ;;
+          "OK: "*)  echo "    ✓ ${line#OK: }" ;;
+          "FAIL: "*) echo "    ✗ ${line#FAIL: }" ;;
+        esac
+      done
+      EXIT_CODE=1
+    else
+      echo "  ✓ All tests passed"
+      echo "$RESULTS" | while IFS= read -r line; do
+        case "$line" in
+          "=== "*)  echo "  $line" ;;
+          "OK: "*)  echo "    ✓ ${line#OK: }" ;;
+        esac
+      done
+    fi
+  else
+    echo "  ⚠ Test endpoint not available (HTTP $TEST_HTTP_CODE) - TestProject may not be deployed"
+  fi
+else
+  echo "  ⚠ No API key configured, skipping test endpoint"
+fi
+
 echo ""
 if [ $EXIT_CODE -eq 0 ]; then
   echo "✓ All smoke tests passed"

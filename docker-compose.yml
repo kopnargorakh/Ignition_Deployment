@@ -8,7 +8,7 @@ services:
   # - Changes made here go directly into version control
   # - Use this environment for developing on feature branches
   ignition-local:
-    image: inductiveautomation/ignition:8.3.1
+    image: inductiveautomation/ignition:8.3.2
     container_name: ignition-local
     restart: unless-stopped
     ports:
@@ -20,20 +20,34 @@ services:
       - ./projects:/usr/local/bin/ignition/data/projects
       # Version-controlled config - changes here go directly to git
       - ./config/gateway:/usr/local/bin/ignition/data/config
+      # Module state configuration (with cert fingerprints for third-party modules)
+      - ./config/modules.json:/usr/local/bin/ignition/data/modules.json
       - ./backups/local:/backups
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
+      # Third-party modules (individual file mounts to preserve built-in modules)
+      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
+      - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
+      - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
+      # Python libraries (domain code only)
+      - ./pylib/Mustry:/usr/local/bin/ignition/user-lib/pylib/Mustry:ro
+      # JAR libraries
+      - ./jar-files/amqp-client-5.28.0.jar:/usr/local/bin/ignition/lib/core/common/amqp-client-5.28.0.jar:ro
     environment:
       - ACCEPT_IGNITION_EULA=Y
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
+      # Auto-accept third-party module licenses and certificates
+      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-local
       -m 4096
@@ -66,7 +80,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-dev:
-    image: inductiveautomation/ignition:8.3.1
+    image: inductiveautomation/ignition:8.3.2
     container_name: ignition-dev
     restart: unless-stopped
     ports:
@@ -77,20 +91,34 @@ services:
       # CI/CD deployment targets - managed by automation
       - ./services/ignition-dev/config:/usr/local/bin/ignition/data/config
       - ./services/ignition-dev/projects:/usr/local/bin/ignition/data/projects
+      # Module state configuration (with cert fingerprints for third-party modules)
+      - ./config/modules.json:/usr/local/bin/ignition/data/modules.json
       - ./backups/dev:/backups
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
+      # Third-party modules (individual file mounts to preserve built-in modules)
+      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
+      - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
+      - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
+      # Python libraries (domain code only)
+      - ./pylib/Mustry:/usr/local/bin/ignition/user-lib/pylib/Mustry:ro
+      # JAR libraries
+      - ./jar-files/amqp-client-5.28.0.jar:/usr/local/bin/ignition/lib/core/common/amqp-client-5.28.0.jar:ro
     environment:
       - ACCEPT_IGNITION_EULA=Y
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer
+      - GATEWAY_MODULES_ENABLED=com.inductiveautomation.jdbc.postgresql,alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
+      # Auto-accept third-party module licenses and certificates
+      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-dev
       -m 4096
@@ -123,7 +151,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-staging:
-    image: inductiveautomation/ignition:8.3.1
+    image: inductiveautomation/ignition:8.3.2
     container_name: ignition-staging
     restart: unless-stopped
     ports:
@@ -134,20 +162,34 @@ services:
       # Curated configuration mounts (additive approach)
       - ./services/ignition-staging/config:/usr/local/bin/ignition/data/config
       - ./services/ignition-staging/projects:/usr/local/bin/ignition/data/projects
+      # Module state configuration (with cert fingerprints for third-party modules)
+      - ./config/modules.json:/usr/local/bin/ignition/data/modules.json
       - ./backups/staging:/backups
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
+      # Third-party modules (individual file mounts to preserve built-in modules)
+      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
+      - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
+      - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
+      # Python libraries (domain code only)
+      - ./pylib/Mustry:/usr/local/bin/ignition/user-lib/pylib/Mustry:ro
+      # JAR libraries
+      - ./jar-files/amqp-client-5.28.0.jar:/usr/local/bin/ignition/lib/core/common/amqp-client-5.28.0.jar:ro
     environment:
       - ACCEPT_IGNITION_EULA=Y
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
+      # Auto-accept third-party module licenses and certificates
+      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-staging
       -m 4096
@@ -180,7 +222,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-prod:
-    image: inductiveautomation/ignition:8.3.1
+    image: inductiveautomation/ignition:8.3.2
     container_name: ignition-prod
     restart: unless-stopped
     ports:
@@ -191,20 +233,34 @@ services:
       # Curated configuration mounts (additive approach)
       - ./services/ignition-prod/config:/usr/local/bin/ignition/data/config
       - ./services/ignition-prod/projects:/usr/local/bin/ignition/data/projects
+      # Module state configuration (with cert fingerprints for third-party modules)
+      - ./config/modules.json:/usr/local/bin/ignition/data/modules.json
       - ./backups/prod:/backups
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
+      # Third-party modules (individual file mounts to preserve built-in modules)
+      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
+      - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
+      - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
+      # Python libraries (domain code only)
+      - ./pylib/Mustry:/usr/local/bin/ignition/user-lib/pylib/Mustry:ro
+      # JAR libraries
+      - ./jar-files/amqp-client-5.28.0.jar:/usr/local/bin/ignition/lib/core/common/amqp-client-5.28.0.jar:ro
     environment:
       - ACCEPT_IGNITION_EULA=Y
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
+      # Auto-accept third-party module licenses and certificates
+      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-prod
       -m 4096
