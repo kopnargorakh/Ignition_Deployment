@@ -1,0 +1,722 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "text": "Operations Timeline — Overtime %"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Chartjs_2"
+                },
+                "position": {
+                  "basis": "108px"
+                },
+                "props": {
+                  "data": {
+                    "datasets": [
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T05:00:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:00:00",
+                              "2025-02-04T05:35:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.58,
+                        "end": "2025-02-04T05:35:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 124
+                      },
+                      {
+                        "backgroundColor": "#C62828",
+                        "begin": "2025-02-04T05:35:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:35:00",
+                              "2025-02-04T05:52:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.28,
+                        "end": "2025-02-04T05:52:00",
+                        "label": "Faulted",
+                        "skipNull": true,
+                        "statusEventId": 125
+                      },
+                      {
+                        "backgroundColor": "#EF6C00",
+                        "begin": "2025-02-04T05:52:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:52:00",
+                              "2025-02-04T06:20:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.47,
+                        "end": "2025-02-04T06:20:00",
+                        "label": "Idle",
+                        "skipNull": true,
+                        "statusEventId": 126
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T06:20:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T06:20:00",
+                              "2025-02-04T07:05:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T07:05:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 127
+                      },
+                      {
+                        "backgroundColor": "#795548",
+                        "begin": "2025-02-04T07:05:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:05:00",
+                              "2025-02-04T07:30:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T07:30:00",
+                        "label": "Offline",
+                        "skipNull": true,
+                        "statusEventId": 128
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T07:30:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:30:00",
+                              "2025-02-04T08:15:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T08:15:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 129
+                      },
+                      {
+                        "backgroundColor": "#EF6C00",
+                        "begin": "2025-02-04T08:15:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:15:00",
+                              "2025-02-04T08:40:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T08:40:00",
+                        "label": "Idle",
+                        "skipNull": true,
+                        "statusEventId": 130
+                      },
+                      {
+                        "backgroundColor": "#C62828",
+                        "begin": "2025-02-04T08:40:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:40:00",
+                              "2025-02-04T08:55:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.25,
+                        "end": "2025-02-04T08:55:00",
+                        "label": "Faulted",
+                        "skipNull": true,
+                        "statusEventId": 131
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T08:55:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:55:00",
+                              "2025-02-04T09:45:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.83,
+                        "end": "2025-02-04T09:45:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 132
+                      },
+                      {
+                        "backgroundColor": "#D84315",
+                        "begin": "2025-02-04T09:45:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T09:45:00",
+                              "2025-02-04T10:10:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T10:10:00",
+                        "label": "Setup",
+                        "skipNull": true,
+                        "statusEventId": 133
+                      }
+                    ]
+                  },
+                  "options": {
+                    "animation": {
+                      "duration": 0
+                    },
+                    "elements": {
+                      "bar": {
+                        "borderColor": "rgba(255,255,255,0.5)",
+                        "borderSkipped": false,
+                        "borderWidth": 1
+                      }
+                    },
+                    "indexAxis": "y",
+                    "layout": {
+                      "padding": {
+                        "bottom": 0,
+                        "left": 4,
+                        "right": 0,
+                        "top": 0
+                      }
+                    },
+                    "plugins": {
+                      "datalabels": {
+                        "align": "right",
+                        "anchor": "start",
+                        "clamp": true,
+                        "clip": true,
+                        "color": "#ffffff",
+                        "display": "(context) \u003d\u003e { var meta \u003d context.chart.getDatasetMeta(context.datasetIndex); var el \u003d meta.data[context.dataIndex]; if (!el || el.base \u003d\u003d\u003d undefined) return false; var barWidth \u003d Math.abs(el.x - el.base); var label \u003d context.dataset.label || \u0027\u0027; var charWidth \u003d 6.5; var textWidth \u003d label.length * charWidth + 12; return barWidth \u003e\u003d textWidth; }",
+                        "font": {
+                          "family": "monospace",
+                          "size": 10,
+                          "weight": "bold"
+                        },
+                        "formatter": "(value, context) \u003d\u003e { return context.dataset.label; }",
+                        "padding": {
+                          "left": 4,
+                          "right": 4
+                        }
+                      },
+                      "legend": {
+                        "display": false
+                      },
+                      "tooltip": {
+                        "backgroundColor": "#1a1a1acc",
+                        "callbacks": {
+                          "afterLabel": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var dur \u003d ds.duration || 0; var mins \u003d Math.round(dur * 60); return \u0027Duration: \u0027 + mins + \u0027 min\u0027; }",
+                          "footer": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.subsystemName || \u0027\u0027; }",
+                          "label": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var begin \u003d ds.begin || \u0027\u0027; var end \u003d ds.end || \u0027\u0027; var b \u003d begin.substring(11, 16); var e \u003d end.substring(11, 16); return b + \u0027 → \u0027 + e; }",
+                          "title": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.label +\" \" + ds.statusEventId || \u0027\u0027; }"
+                        },
+                        "padding": 10
+                      }
+                    },
+                    "scales": {
+                      "x": {
+                        "grid": {
+                          "color": "rgba(0,0,0,0.06)"
+                        },
+                        "max": "2025-02-04T10:00:00",
+                        "min": "2025-02-04T05:00:00",
+                        "ticks": {
+                          "color": "#999999"
+                        },
+                        "time": {
+                          "displayFormats": {
+                            "hour": "h:mm a"
+                          },
+                          "unit": "hour"
+                        },
+                        "type": "time"
+                      },
+                      "y": {
+                        "display": false,
+                        "stacked": true,
+                        "type": "category"
+                      }
+                    }
+                  },
+                  "type": "bar"
+                },
+                "type": "embr.chart.chart-js"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background-color": "#fff",
+                "border": "1px solid #C8C5BE",
+                "margin-bottom": "16px",
+                "padding": "16px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "text": "Machine Status"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Chartjs_2"
+                },
+                "position": {
+                  "basis": "108px"
+                },
+                "props": {
+                  "data": {
+                    "datasets": [
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T05:00:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:00:00",
+                              "2025-02-04T05:35:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.58,
+                        "end": "2025-02-04T05:35:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 124
+                      },
+                      {
+                        "backgroundColor": "#C62828",
+                        "begin": "2025-02-04T05:35:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:35:00",
+                              "2025-02-04T05:52:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.28,
+                        "end": "2025-02-04T05:52:00",
+                        "label": "Faulted",
+                        "skipNull": true,
+                        "statusEventId": 125
+                      },
+                      {
+                        "backgroundColor": "#EF6C00",
+                        "begin": "2025-02-04T05:52:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:52:00",
+                              "2025-02-04T06:20:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.47,
+                        "end": "2025-02-04T06:20:00",
+                        "label": "Idle",
+                        "skipNull": true,
+                        "statusEventId": 126
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T06:20:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T06:20:00",
+                              "2025-02-04T07:05:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T07:05:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 127
+                      },
+                      {
+                        "backgroundColor": "#795548",
+                        "begin": "2025-02-04T07:05:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:05:00",
+                              "2025-02-04T07:30:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T07:30:00",
+                        "label": "Offline",
+                        "skipNull": true,
+                        "statusEventId": 128
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T07:30:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:30:00",
+                              "2025-02-04T08:15:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T08:15:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 129
+                      }
+                    ]
+                  },
+                  "options": {
+                    "animation": {
+                      "duration": 0
+                    },
+                    "elements": {
+                      "bar": {
+                        "borderColor": "rgba(255,255,255,0.5)",
+                        "borderSkipped": false,
+                        "borderWidth": 1
+                      }
+                    },
+                    "indexAxis": "y",
+                    "layout": {
+                      "padding": {
+                        "bottom": 0,
+                        "left": 4,
+                        "right": 0,
+                        "top": 0
+                      }
+                    },
+                    "plugins": {
+                      "datalabels": {
+                        "align": "right",
+                        "anchor": "start",
+                        "clamp": true,
+                        "clip": true,
+                        "color": "#ffffff",
+                        "display": "(context) \u003d\u003e { var meta \u003d context.chart.getDatasetMeta(context.datasetIndex); var el \u003d meta.data[context.dataIndex]; if (!el || el.base \u003d\u003d\u003d undefined) return false; var barWidth \u003d Math.abs(el.x - el.base); var label \u003d context.dataset.label || \u0027\u0027; var charWidth \u003d 6.5; var textWidth \u003d label.length * charWidth + 12; return barWidth \u003e\u003d textWidth; }",
+                        "font": {
+                          "family": "monospace",
+                          "size": 10,
+                          "weight": "bold"
+                        },
+                        "formatter": "(value, context) \u003d\u003e { return context.dataset.label; }",
+                        "padding": {
+                          "left": 4,
+                          "right": 4
+                        }
+                      },
+                      "legend": {
+                        "display": false
+                      },
+                      "tooltip": {
+                        "backgroundColor": "#1a1a1acc",
+                        "callbacks": {
+                          "afterLabel": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var dur \u003d ds.duration || 0; var mins \u003d Math.round(dur * 60); return \u0027Duration: \u0027 + mins + \u0027 min\u0027; }",
+                          "footer": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.subsystemName || \u0027\u0027; }",
+                          "label": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var begin \u003d ds.begin || \u0027\u0027; var end \u003d ds.end || \u0027\u0027; var b \u003d begin.substring(11, 16); var e \u003d end.substring(11, 16); return b + \u0027 → \u0027 + e; }",
+                          "title": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.label +\" \" + ds.statusEventId || \u0027\u0027; }"
+                        },
+                        "padding": 10
+                      }
+                    },
+                    "scales": {
+                      "x": {
+                        "grid": {
+                          "color": "rgba(0,0,0,0.06)"
+                        },
+                        "max": "2025-02-04T10:00:00",
+                        "min": "2025-02-04T05:00:00",
+                        "ticks": {
+                          "color": "#999999"
+                        },
+                        "time": {
+                          "displayFormats": {
+                            "hour": "h:mm a"
+                          },
+                          "unit": "hour"
+                        },
+                        "type": "time"
+                      },
+                      "y": {
+                        "display": false,
+                        "stacked": true,
+                        "type": "category"
+                      }
+                    }
+                  },
+                  "type": "bar"
+                },
+                "type": "embr.chart.chart-js"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background-color": "#fff",
+                "border": "1px solid #C8C5BE",
+                "margin-bottom": "16px",
+                "padding": "16px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Chartjs"
+            },
+            "position": {
+              "basis": "100px"
+            },
+            "props": {
+              "data": {
+                "datasets": [
+                  {
+                    "data": [
+                      50,
+                      20,
+                      75
+                    ],
+                    "label": "Dataset 1"
+                  },
+                  {
+                    "data": [
+                      20,
+                      80,
+                      10
+                    ],
+                    "label": "Dataset 2"
+                  }
+                ],
+                "labels": [
+                  "A",
+                  "B",
+                  "C"
+                ]
+              },
+              "style": {
+                "background-color": "#fff",
+                "border": "1px solid #C8C5BE",
+                "margin-bottom": "16px",
+                "overflow": "auto"
+              },
+              "type": "pie"
+            },
+            "type": "embr.chart.chart-js"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_2"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "84px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "32px",
+                "margin-top": "32px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "background-color": "#E8E6E1 — warm light gray ",
+        "gap": "16px",
+        "padding": "32px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

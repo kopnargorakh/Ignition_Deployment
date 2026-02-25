@@ -1,0 +1,792 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {},
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Label"
+                },
+                "position": {
+                  "basis": "32px"
+                },
+                "props": {
+                  "text": "Machine Status"
+                },
+                "type": "ia.display.label"
+              },
+              {
+                "meta": {
+                  "name": "Chartjs_2"
+                },
+                "position": {
+                  "basis": "108px"
+                },
+                "props": {
+                  "data": {
+                    "datasets": [
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T05:00:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:00:00",
+                              "2025-02-04T05:35:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.58,
+                        "end": "2025-02-04T05:35:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 124
+                      },
+                      {
+                        "backgroundColor": "#C62828",
+                        "begin": "2025-02-04T05:35:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:35:00",
+                              "2025-02-04T05:52:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.28,
+                        "end": "2025-02-04T05:52:00",
+                        "label": "Faulted",
+                        "skipNull": true,
+                        "statusEventId": 125
+                      },
+                      {
+                        "backgroundColor": "#EF6C00",
+                        "begin": "2025-02-04T05:52:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T05:52:00",
+                              "2025-02-04T06:20:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.47,
+                        "end": "2025-02-04T06:20:00",
+                        "label": "Idle",
+                        "skipNull": true,
+                        "statusEventId": 126
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T06:20:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T06:20:00",
+                              "2025-02-04T07:05:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T07:05:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 127
+                      },
+                      {
+                        "backgroundColor": "#795548",
+                        "begin": "2025-02-04T07:05:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:05:00",
+                              "2025-02-04T07:30:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T07:30:00",
+                        "label": "Offline",
+                        "skipNull": true,
+                        "statusEventId": 128
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T07:30:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T07:30:00",
+                              "2025-02-04T08:15:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.75,
+                        "end": "2025-02-04T08:15:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 129
+                      },
+                      {
+                        "backgroundColor": "#EF6C00",
+                        "begin": "2025-02-04T08:15:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:15:00",
+                              "2025-02-04T08:40:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T08:40:00",
+                        "label": "Idle",
+                        "skipNull": true,
+                        "statusEventId": 130
+                      },
+                      {
+                        "backgroundColor": "#C62828",
+                        "begin": "2025-02-04T08:40:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:40:00",
+                              "2025-02-04T08:55:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.25,
+                        "end": "2025-02-04T08:55:00",
+                        "label": "Faulted",
+                        "skipNull": true,
+                        "statusEventId": 131
+                      },
+                      {
+                        "backgroundColor": "#2E7D32",
+                        "begin": "2025-02-04T08:55:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T08:55:00",
+                              "2025-02-04T09:45:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.83,
+                        "end": "2025-02-04T09:45:00",
+                        "label": "In Cycle",
+                        "skipNull": true,
+                        "statusEventId": 132
+                      },
+                      {
+                        "backgroundColor": "#D84315",
+                        "begin": "2025-02-04T09:45:00",
+                        "data": [
+                          {
+                            "x": [
+                              "2025-02-04T09:45:00",
+                              "2025-02-04T10:10:00"
+                            ],
+                            "y": "line1"
+                          }
+                        ],
+                        "duration": 0.42,
+                        "end": "2025-02-04T10:10:00",
+                        "label": "Setup",
+                        "skipNull": true,
+                        "statusEventId": 133
+                      }
+                    ]
+                  },
+                  "options": {
+                    "animation": {
+                      "duration": 0
+                    },
+                    "elements": {
+                      "bar": {
+                        "borderColor": "rgba(255,255,255,0.5)",
+                        "borderSkipped": false,
+                        "borderWidth": 1
+                      }
+                    },
+                    "indexAxis": "y",
+                    "layout": {
+                      "padding": {
+                        "bottom": 0,
+                        "left": 4,
+                        "right": 0,
+                        "top": 0
+                      }
+                    },
+                    "plugins": {
+                      "datalabels": {
+                        "align": "right",
+                        "anchor": "start",
+                        "clamp": true,
+                        "clip": true,
+                        "color": "#ffffff",
+                        "display": "(context) \u003d\u003e { var meta \u003d context.chart.getDatasetMeta(context.datasetIndex); var el \u003d meta.data[context.dataIndex]; if (!el || el.base \u003d\u003d\u003d undefined) return false; var barWidth \u003d Math.abs(el.x - el.base); var label \u003d context.dataset.label || \u0027\u0027; var charWidth \u003d 6.5; var textWidth \u003d label.length * charWidth + 12; return barWidth \u003e\u003d textWidth; }",
+                        "font": {
+                          "family": "monospace",
+                          "size": 10,
+                          "weight": "bold"
+                        },
+                        "formatter": "(value, context) \u003d\u003e { return context.dataset.label; }",
+                        "padding": {
+                          "left": 4,
+                          "right": 4
+                        }
+                      },
+                      "legend": {
+                        "display": false
+                      },
+                      "tooltip": {
+                        "backgroundColor": "#1a1a1acc",
+                        "callbacks": {
+                          "afterLabel": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var dur \u003d ds.duration || 0; var mins \u003d Math.round(dur * 60); return \u0027Duration: \u0027 + mins + \u0027 min\u0027; }",
+                          "footer": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.subsystemName || \u0027\u0027; }",
+                          "label": "(item) \u003d\u003e { var ds \u003d item.chart.data.datasets[item.datasetIndex]; var begin \u003d ds.begin || \u0027\u0027; var end \u003d ds.end || \u0027\u0027; var b \u003d begin.substring(11, 16); var e \u003d end.substring(11, 16); return b + \u0027 → \u0027 + e; }",
+                          "title": "(items) \u003d\u003e { var ds \u003d items[0].chart.data.datasets[items[0].datasetIndex]; return ds.label +\" \" + ds.statusEventId || \u0027\u0027; }"
+                        },
+                        "padding": 10
+                      }
+                    },
+                    "scales": {
+                      "x": {
+                        "grid": {
+                          "color": "rgba(0,0,0,0.06)"
+                        },
+                        "max": "2025-02-04T10:00:00",
+                        "min": "2025-02-04T05:00:00",
+                        "ticks": {
+                          "color": "#999999"
+                        },
+                        "time": {
+                          "displayFormats": {
+                            "hour": "h:mm a"
+                          },
+                          "unit": "hour"
+                        },
+                        "type": "time"
+                      },
+                      "y": {
+                        "display": false,
+                        "stacked": true,
+                        "type": "category"
+                      }
+                    }
+                  },
+                  "type": "bar"
+                },
+                "type": "embr.chart.chart-js"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_0"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background-color": "#fff",
+                "border": "1px solid #C8C5BE",
+                "margin-bottom": "16px",
+                "padding": "16px"
+              }
+            },
+            "type": "ia.container.flex"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "Chartjs"
+                },
+                "position": {
+                  "basis": "300px"
+                },
+                "props": {
+                  "data": {
+                    "labels": [
+                      "06:00",
+                      "07:00",
+                      "08:00",
+                      "09:00",
+                      "10:00",
+                      "11:00",
+                      "12:00",
+                      "13:00",
+                      "14:00",
+                      "15:00",
+                      "16:00",
+                      "17:00",
+                      "18:00"
+                    ],
+                    "datasets": [
+                      {
+                        "borderColor": "#D64C3C",
+                        "data": [
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65,
+                          65
+                        ],
+                        "label": "Minimum",
+                        "pointRadius": 0,
+                        "pointHoverRadius": 0,
+                        "tension": 0
+                      },
+                      {
+                        "backgroundColor": "rgba(76, 175, 80, 0.14)",
+                        "borderColor": "#2E7D32",
+                        "data": [
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85,
+                          85
+                        ],
+                        "fill": "-1",
+                        "label": "Target",
+                        "pointRadius": 0,
+                        "pointHoverRadius": 0,
+                        "tension": 0
+                      },
+                      {
+                        "backgroundColor": "#1F77D0",
+                        "borderColor": "#1F77D0",
+                        "borderWidth": 3,
+                        "data": [
+                          68,
+                          72,
+                          76,
+                          81,
+                          79,
+                          84,
+                          88,
+                          86,
+                          83,
+                          87,
+                          90,
+                          89,
+                          85
+                        ],
+                        "label": "OEE",
+                        "pointBackgroundColor": "#FFFFFF",
+                        "pointBorderColor": "#1F77D0",
+                        "pointBorderWidth": 2,
+                        "pointHoverRadius": 6,
+                        "pointRadius": 4,
+                        "tension": 0.32
+                      }
+                    ]
+                  },
+                  "options": {
+                    "interaction": {
+                      "intersect": false,
+                      "mode": "index"
+                    },
+                    "plugins": {
+                      "legend": {
+                        "labels": {
+                          "boxHeight": 10,
+                          "boxWidth": 10,
+                          "color": "#2F3B47",
+                          "usePointStyle": true
+                        }
+                      },
+                      "title": {
+                        "color": "#1E2A36",
+                        "display": true,
+                        "font": {
+                          "size": 16,
+                          "weight": "bold"
+                        },
+                        "text": "OEE Trend met Minimum en Target"
+                      },
+                      "tooltip": {
+                        "backgroundColor": "rgba(16, 23, 30, 0.92)",
+                        "callbacks": {
+                          "label": "(item) => { return item.dataset.label + ': ' + item.formattedValue + '%'; }"
+                        },
+                        "cornerRadius": 8,
+                        "padding": 10
+                      }
+                    },
+                    "scales": {
+                      "x": {
+                        "grid": {
+                          "color": "rgba(160, 174, 192, 0.2)",
+                          "drawBorder": false,
+                          "drawOnChartArea": false
+                        },
+                        "ticks": {
+                          "color": "#607080",
+                          "maxRotation": 0
+                        },
+                        "type": "category"
+                      },
+                      "y": {
+                        "grid": {
+                          "color": "rgba(160, 174, 192, 0.26)",
+                          "drawBorder": false
+                        },
+                        "max": 100,
+                        "min": 0,
+                        "ticks": {
+                          "color": "#607080",
+                          "stepSize": 10,
+                          "callback": "(value) => { return value + '%'; }"
+                        },
+                        "type": "linear"
+                      }
+                    }
+                  },
+                  "type": "line"
+                },
+                "type": "embr.chart.chart-js"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer"
+            },
+            "position": {
+              "basis": "200px"
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "background-color": "#fff",
+                "border": "1px solid #C8C5BE",
+                "margin-bottom": "16px",
+                "padding": "16px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer"
+        },
+        "position": {
+          "grow": 1
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      },
+      {
+        "children": [
+          {
+            "meta": {
+              "name": "Chartjs"
+            },
+            "position": {
+              "basis": "300px"
+            },
+            "props": {
+              "data": {
+                "labels": [
+                  "06:00",
+                  "07:00",
+                  "08:00",
+                  "09:00",
+                  "10:00",
+                  "11:00",
+                  "12:00",
+                  "13:00",
+                  "14:00",
+                  "15:00",
+                  "16:00",
+                  "17:00",
+                  "18:00"
+                ],
+                "datasets": [
+                  {
+                    "data": [
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320,
+                      320
+                    ],
+                    "borderColor": "#D9553D",
+                    "label": "Minimum",
+                    "pointHoverRadius": 0,
+                    "pointRadius": 0,
+                    "tension": 0
+                  },
+                  {
+                    "data": [
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800,
+                      800
+                    ],
+                    "borderColor": "#2E7D32",
+                    "label": "Target",
+                    "pointHoverRadius": 0,
+                    "pointRadius": 0,
+                    "tension": 0
+                  },
+                  {
+                    "data": [
+                      360,
+                      410,
+                      470,
+                      525,
+                      505,
+                      575,
+                      650,
+                      690,
+                      665,
+                      705,
+                      750,
+                      730,
+                      690
+                    ],
+                    "borderColor": "#2F6FB0",
+                    "borderWidth": 3,
+                    "label": "Actual",
+                    "pointBackgroundColor": "#FFFFFF",
+                    "pointBorderColor": "#2F6FB0",
+                    "pointBorderWidth": 2,
+                    "pointHoverRadius": 6,
+                    "pointRadius": 4,
+                    "tension": 0.3
+                  }
+                ]
+              },
+              "options": {
+                "interaction": {
+                  "intersect": false,
+                  "mode": "index"
+                },
+                "plugins": {
+                  "legend": {
+                    "labels": {
+                      "boxHeight": 10,
+                      "boxWidth": 10,
+                      "color": "#2F3B47",
+                      "usePointStyle": true
+                    }
+                  },
+                  "title": {
+                    "color": "#1E2A36",
+                    "display": true,
+                    "font": {
+                      "size": 14,
+                      "weight": "bold"
+                    },
+                    "text": "Productie Trend met Minimum en Target"
+                  },
+                  "tooltip": {
+                    "backgroundColor": "rgba(16, 23, 30, 0.92)",
+                    "callbacks": {
+                      "label": "(item) => { return item.dataset.label + ': ' + item.formattedValue; }"
+                    },
+                    "cornerRadius": 8,
+                    "padding": 10
+                  }
+                },
+                "scales": {
+                  "x": {
+                    "grid": {
+                      "color": "rgba(160, 174, 192, 0.2)",
+                      "drawBorder": false,
+                      "drawOnChartArea": false
+                    },
+                    "ticks": {
+                      "color": "#607080",
+                      "maxRotation": 0
+                    },
+                    "type": "category"
+                  },
+                  "y": {
+                    "grid": {
+                      "color": "rgba(160, 174, 192, 0.26)",
+                      "drawBorder": false
+                    },
+                    "max": 800,
+                    "min": 0,
+                    "ticks": {
+                      "color": "#607080",
+                      "stepSize": 100
+                    },
+                    "type": "linear"
+                  }
+                }
+              },
+              "type": "line"
+            },
+            "type": "embr.chart.chart-js"
+          },
+          {
+            "children": [
+              {
+                "meta": {
+                  "name": "FlexContainer"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_0"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_1"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              },
+              {
+                "meta": {
+                  "name": "FlexContainer_2"
+                },
+                "position": {
+                  "basis": "60px",
+                  "shrink": 0
+                },
+                "props": {
+                  "style": {
+                    "background-color": "#fff",
+                    "border": "1px solid #C8C5BE",
+                    "margin-bottom": "16px",
+                    "padding": "16px"
+                  }
+                },
+                "type": "ia.container.flex"
+              }
+            ],
+            "meta": {
+              "name": "FlexContainer_1"
+            },
+            "position": {
+              "basis": "84px",
+              "grow": 1
+            },
+            "props": {
+              "direction": "column",
+              "style": {
+                "gap": "32px",
+                "margin-top": "32px"
+              }
+            },
+            "type": "ia.container.flex"
+          }
+        ],
+        "meta": {
+          "name": "FlexContainer_1"
+        },
+        "position": {
+          "basis": "200px"
+        },
+        "props": {
+          "direction": "column"
+        },
+        "type": "ia.container.flex"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column",
+      "style": {
+        "background-color": "#E8E6E1 — warm light gray ",
+        "gap": "16px",
+        "padding": "32px"
+      }
+    },
+    "type": "ia.container.flex"
+  }
+}

@@ -27,7 +27,7 @@ services:
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
       # Third-party modules (individual file mounts to preserve built-in modules)
-      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/Embr-Charts-Ignition83-4.0.1.modl:/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition83-4.0.1.modl:ro
       - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
       - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
       - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
@@ -40,15 +40,15 @@ services:
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=com.inductiveautomation.eventstream, alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - GATEWAY_MODULES_ENABLED=com.inductiveautomation.eventstream, alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
       # Auto-accept third-party module licenses and certificates
-      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
-      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_LICENSES=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-local
       -m 4096
@@ -98,7 +98,7 @@ services:
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
       # Third-party modules (individual file mounts to preserve built-in modules)
-      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/Embr-Charts-Ignition83-4.0.1.modl:/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition83-4.0.1.modl:ro
       - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
       - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
       - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
@@ -111,15 +111,15 @@ services:
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=com.inductiveautomation.jdbc.postgresql,alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - GATEWAY_MODULES_ENABLED=com.inductiveautomation.jdbc.postgresql,alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
       # Auto-accept third-party module licenses and certificates
-      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
-      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_LICENSES=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-dev
       -m 4096
@@ -169,7 +169,7 @@ services:
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
       # Third-party modules (individual file mounts to preserve built-in modules)
-      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/Embr-Charts-Ignition83-4.0.1.modl:/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition83-4.0.1.modl:ro
       - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
       - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
       - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
@@ -182,15 +182,15 @@ services:
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
       # Auto-accept third-party module licenses and certificates
-      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
-      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_LICENSES=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-staging
       -m 4096
@@ -240,7 +240,7 @@ services:
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
       # Third-party modules (individual file mounts to preserve built-in modules)
-      - ./third-party-modules/ApexCharts-2.0.1.modl:/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl:ro
+      - ./third-party-modules/Embr-Charts-Ignition83-4.0.1.modl:/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition83-4.0.1.modl:ro
       - ./third-party-modules/MQTT-Distributor-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Distributor-signed.modl:ro
       - ./third-party-modules/MQTT-Engine-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Engine-signed.modl:ro
       - ./third-party-modules/MQTT-Transmission-signed.modl:/usr/local/bin/ignition/user-lib/modules/MQTT-Transmission-signed.modl:ro
@@ -253,15 +253,15 @@ services:
       - GATEWAY_ADMIN_USERNAME=admin
       - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
       - IGNITION_EDITION=standard
-      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - GATEWAY_MODULES_ENABLED=alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
       - IGNITION_GID=1000
       - TZ=Europe/Brussels
       - GATEWAY_NETWORK_ENABLED=true
       - GATEWAY_RESTORE_DISABLED=true
       # Auto-accept third-party module licenses and certificates
-      - ACCEPT_MODULE_LICENSES=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
-      - ACCEPT_MODULE_CERTS=com.kyvislabs.apexcharts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_LICENSES=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
+      - ACCEPT_MODULE_CERTS=com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
     command: >
       -n ignition-prod
       -m 4096

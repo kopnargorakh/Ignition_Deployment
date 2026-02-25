@@ -145,10 +145,10 @@
     "onStartup": "enabled",
     "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
   },
-  "com.kyvislabs.apexcharts": {
-    "filename": "/usr/local/bin/ignition/user-lib/modules/ApexCharts-2.0.1.modl",
+  "com.mussonindustrial.embr.charts": {
+    "filename": "/usr/local/bin/ignition/user-lib/modules/Embr-Charts-Ignition83-4.0.1.modl",
     "onStartup": "enabled",
-    "certFingerprint": "aa764a6b335520cf9a211b313a27829b03049af9",
-    "licenseAgreementHash": 1305859277
+    "certFingerprint": "e5a3cf3f06627c175b68b0122ac8f2c3f9c992e2",
+    "licenseAgreementHash": 3266212556
   }
 }
