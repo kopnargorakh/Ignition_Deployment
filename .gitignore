@@ -47,6 +47,7 @@ requirements/
 
 # Ignition runtime data (never commit these)
 ignition-data/
+ignition-data/local/data/
 **/data/var/
 **/data/local/
 **/data/logs/

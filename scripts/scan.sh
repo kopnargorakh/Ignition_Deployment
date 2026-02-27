@@ -80,6 +80,42 @@ if [ -z "$API_KEY" ]; then
   exit 1
 fi
 
+# Local guardrail to prevent accidental temp auth profile persistence.
+if [ "$ENVIRONMENT" = "local" ]; then
+  LOCAL_SECURITY_FILE="$PROJECT_ROOT/config/gateway/resources/core/ignition/security-properties/config.json"
+  LOCAL_USER_SOURCE_DIR="$PROJECT_ROOT/config/gateway/resources/core/ignition/user-source"
+  LOCAL_IDP_DIR="$PROJECT_ROOT/config/gateway/resources/core/ignition/identity-provider"
+
+  if [ ! -f "$LOCAL_SECURITY_FILE" ]; then
+    echo "Error: Missing local security properties file: $LOCAL_SECURITY_FILE"
+    exit 1
+  fi
+
+  if grep -Eq '"systemAuthProfile"[[:space:]]*:[[:space:]]*"temp(_[0-9]+)?"' "$LOCAL_SECURITY_FILE"; then
+    echo "Error: local security-properties references temp systemAuthProfile."
+    echo "Set systemAuthProfile to \"default\" before scanning."
+    exit 1
+  fi
+
+  if grep -Eq '"systemIdentityProvider"[[:space:]]*:[[:space:]]*"temp(_[0-9]+)?"' "$LOCAL_SECURITY_FILE"; then
+    echo "Error: local security-properties references temp systemIdentityProvider."
+    echo "Set systemIdentityProvider to \"default\" before scanning."
+    exit 1
+  fi
+
+  if find "$LOCAL_USER_SOURCE_DIR" -mindepth 1 -maxdepth 1 -type d -name 'temp*' | grep -q .; then
+    echo "Error: temporary user-source directories found under local config."
+    echo "Remove config/gateway/resources/core/ignition/user-source/temp* before scanning."
+    exit 1
+  fi
+
+  if find "$LOCAL_IDP_DIR" -mindepth 1 -maxdepth 1 -type d -name 'temp*' | grep -q .; then
+    echo "Error: temporary identity-provider directories found under local config."
+    echo "Remove config/gateway/resources/core/ignition/identity-provider/temp* before scanning."
+    exit 1
+  fi
+fi
+
 # Check gateway health first
 if ! curl -s -f "${GATEWAY_URL}/StatusPing" > /dev/null 2>&1; then
   echo "Error: Gateway is not responding at $GATEWAY_URL"

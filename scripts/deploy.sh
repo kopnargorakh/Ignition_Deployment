@@ -103,6 +103,41 @@ if [ -z "$API_KEY" ]; then
 fi
 echo ""
 
+# Step 1.5: Validate scan API permissions for development deployments
+preflight_scan_permissions() {
+  if [ "$ENVIRONMENT" != "dev" ]; then
+    return 0
+  fi
+
+  echo "Step 1.5: Validating Ignition scan API permissions (dev)..."
+  if [ -z "$API_KEY" ]; then
+    echo "Error: DEV_GATEWAY_API_KEY is required for dev deployment"
+    return 1
+  fi
+
+  local scan_failed=0
+  local endpoint
+  local preflight_http_code
+
+  for endpoint in config projects; do
+    preflight_http_code=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" -X POST "${GATEWAY_URL}/data/api/v1/scan/${endpoint}")
+    if [ "$preflight_http_code" = "200" ]; then
+      echo "  ✓ /scan/${endpoint} permission OK (HTTP 200)"
+    else
+      echo "  ✗ /scan/${endpoint} permission failed (HTTP $preflight_http_code)"
+      scan_failed=1
+    fi
+  done
+
+  if [ "$scan_failed" -ne 0 ]; then
+    echo "Error: Scan API preflight failed; aborting deployment."
+    return 1
+  fi
+
+  echo "✓ Scan API preflight passed"
+  echo ""
+}
+
 # Step 1: Check if gateway is running
 echo "Step 1: Checking gateway health..."
 if ! curl -s -f "${GATEWAY_URL}/StatusPing" > /dev/null; then
@@ -112,6 +147,10 @@ if ! curl -s -f "${GATEWAY_URL}/StatusPing" > /dev/null; then
 fi
 echo "✓ Gateway is healthy"
 echo ""
+
+if ! preflight_scan_permissions; then
+  exit 1
+fi
 
 # Step 2: Create backup if enabled
 if [ "$AUTO_BACKUP" = "true" ]; then

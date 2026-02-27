@@ -37,6 +37,35 @@
           }
         },
         "type": "ia.display.label"
+      },
+      {
+        "meta": {
+          "name": "Label_0"
+        },
+        "position": {
+          "height": 17,
+          "width": 228,
+          "x": 294,
+          "y": 10
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[System]Gateway/DeploymentMode"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "var(--neutral-10)"
+          }
+        },
+        "type": "ia.display.label"
       }
     ],
     "meta": {

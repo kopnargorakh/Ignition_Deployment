@@ -2,11 +2,9 @@
 # Documentation: https://docs.inductiveautomation.com/docs/8.3/platform/docker-image
 ---
 services:
-  # Local Development Environment - for active feature development
-  # - Projects: Direct mount of ./projects/ (version controlled)
-  # - Config: Direct mount of ./config/gateway/ (version controlled)
-  # - Changes made here go directly into version control
-  # - Use this environment for developing on feature branches
+  # Local Development Environment
+  # - Full Ignition data persisted in a Docker named volume
+  # - Local gateway state is intentionally NOT version controlled
   ignition-local:
     image: inductiveautomation/ignition:8.3.3
     container_name: ignition-local
@@ -17,12 +15,12 @@ services:
       - "9060:8060"  # Gateway Network port
       - "1883:1883"  # Gateway Network port
     volumes:
-      # Version-controlled projects - changes here go directly to git
+      # Persist full Ignition gateway data (commissioning + auth + config + projects)
+      - ignition-local-data:/usr/local/bin/ignition/data
+      # Keep project resources editable from the repository during local development
       - ./projects:/usr/local/bin/ignition/data/projects
-      # Version-controlled config - changes here go directly to git
+      # Keep gateway config editable from the repository during local development
       - ./config/gateway:/usr/local/bin/ignition/data/config
-      # Persist internal database state to avoid repeated commissioning
-      - ./ignition-data/local/db:/usr/local/bin/ignition/data/db
       # Secrets management
       - ./secrets/gateway_admin_password.txt:/run/secrets/gateway_admin_password:ro
       # Module state configuration (with cert fingerprints for third-party modules)
@@ -40,7 +38,7 @@ services:
     environment:
       - ACCEPT_IGNITION_EULA=Y
       - GATEWAY_ADMIN_USERNAME=admin
-      - GATEWAY_ADMIN_PASSWORD_FILE=/run/secrets/gateway_admin_password
+      - GATEWAY_ADMIN_PASSWORD=${GATEWAY_ADMIN_PASSWORD:-Test123!}
       - IGNITION_EDITION=standard
       - GATEWAY_MODULES_ENABLED=com.inductiveautomation.eventstream, alarm-notification,reporting,opc-ua,perspective,sms-notification,symbol-factory,tag-historian,udp-tcp-drivers,web-developer,com.mussonindustrial.embr.charts,com.cirruslink.mqtt.distributor.gateway,com.cirruslink.mqtt.engine.gateway,com.cirruslink.mqtt.transmission.gateway
       - IGNITION_UID=1000
@@ -322,9 +320,10 @@ services:
     networks:
       - ignition-network
 
-volumes:
-  postgres-data:
-
 networks:
   ignition-network:
     driver: bridge
+
+volumes:
+  postgres-data:
+  ignition-local-data:

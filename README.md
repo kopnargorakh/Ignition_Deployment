@@ -206,6 +206,9 @@ Configure these in Settings → Secrets and variables → Actions:
 - Do not commit passwords or API keys in `config/environments/*.yaml`.
 - Copy `.env.example` to `.env.local` and set local values.
 - Optional local fallback: put only the API token in `secrets/gateway_api_key` (used when `*_GATEWAY_API_KEY` is not set).
+- `ignition-local` now persists the full gateway data directory in the Docker named volume `ignition-local-data`, so local commissioning/auth/runtime state is retained outside version control.
+- Local commissioning uses Docker-image environment variables (`GATEWAY_ADMIN_USERNAME` and `GATEWAY_ADMIN_PASSWORD`).
+- Keep `GATEWAY_ADMIN_PASSWORD` set in your local environment so a fresh local gateway can complete `authSetup` without manual `/welcome` user creation.
 - `secrets/` is local-only and gitignored (`.gitignore`), so this is acceptable for local Docker development.
 - In CI/CD, always use GitHub Environment Secrets (or an external secrets manager), not files in the repo.
 - Load variables before running scripts locally:
