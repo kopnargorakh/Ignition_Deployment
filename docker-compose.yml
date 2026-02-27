@@ -8,7 +8,7 @@ services:
   # - Changes made here go directly into version control
   # - Use this environment for developing on feature branches
   ignition-local:
-    image: inductiveautomation/ignition:8.3.2
+    image: inductiveautomation/ignition:8.3.3
     container_name: ignition-local
     restart: unless-stopped
     ports:
@@ -57,7 +57,7 @@ services:
       --
       wrapper.java.initmemory=1024
       -Dignition.allowunsignedmodules=true
-      -Dignition.config.mode=local
+      -Dignition.config.mode=local-development
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8088/StatusPing"]
       interval: 30s
@@ -83,7 +83,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-dev:
-    image: inductiveautomation/ignition:8.3.2
+    image: inductiveautomation/ignition:8.3.3
     container_name: ignition-dev
     restart: unless-stopped
     ports:
@@ -156,7 +156,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-staging:
-    image: inductiveautomation/ignition:8.3.2
+    image: inductiveautomation/ignition:8.3.3
     container_name: ignition-staging
     restart: unless-stopped
     ports:
@@ -229,7 +229,7 @@ services:
   # - Config: Receives config/gateway/ via CI/CD deployment
   # - Do not edit directly - managed by automation
   ignition-prod:
-    image: inductiveautomation/ignition:8.3.2
+    image: inductiveautomation/ignition:8.3.3
     container_name: ignition-prod
     restart: unless-stopped
     ports:

@@ -88,15 +88,6 @@
               }
             ],
             "name": "Roles"
-          },
-          {
-            "children": [
-              {
-                "children": [],
-                "name": "Read"
-              }
-            ],
-            "name": "APIToken"
           }
         ],
         "name": "Authenticated"
@@ -104,8 +95,8 @@
     ],
     "type": "AnyOf"
   },
-  "systemAuthProfile": "default",
-  "systemIdentityProvider": "default",
+  "systemAuthProfile": "temp_0",
+  "systemIdentityProvider": "temp_0",
   "userInactivityTimeout": 10,
   "writePermissions": {
     "securityLevels": [
@@ -119,15 +110,6 @@
               }
             ],
             "name": "Roles"
-          },
-          {
-            "children": [
-              {
-                "children": [],
-                "name": "Write"
-              }
-            ],
-            "name": "APIToken"
           }
         ],
         "name": "Authenticated"

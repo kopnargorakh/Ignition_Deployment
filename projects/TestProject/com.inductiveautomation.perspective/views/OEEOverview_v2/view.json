@@ -15,7 +15,7 @@
             "children": [
               {
                 "meta": {
-                  "name": "Label"
+                  "name": "MachineStatusTitleLabel"
                 },
                 "position": {
                   "basis": "32px"
@@ -33,7 +33,7 @@
               },
               {
                 "meta": {
-                  "name": "Chartjs_2"
+                  "name": "MachineStatusTimelineChart"
                 },
                 "position": {
                   "basis": "132px"
@@ -344,7 +344,7 @@
               }
             ],
             "meta": {
-              "name": "FlexContainer_0"
+              "name": "MachineStatusSection"
             },
             "position": {
               "basis": "200px"
@@ -366,7 +366,7 @@
             "children": [
               {
                 "meta": {
-                  "name": "Label"
+                  "name": "OEETrendTitleLabel"
                 },
                 "position": {
                   "basis": "32px"
@@ -383,7 +383,7 @@
               },
               {
                 "meta": {
-                  "name": "Chartjs"
+                  "name": "OEETrendChart"
                 },
                 "position": {
                   "basis": "400px"
@@ -548,7 +548,7 @@
               }
             ],
             "meta": {
-              "name": "FlexContainer"
+              "name": "OEETrendSection"
             },
             "position": {
               "basis": "460px"
@@ -570,7 +570,7 @@
             "children": [
               {
                 "meta": {
-                  "name": "Label"
+                  "name": "ProductionTrendTitleLabel"
                 },
                 "position": {
                   "basis": "32px"
@@ -587,7 +587,7 @@
               },
               {
                 "meta": {
-                  "name": "Chartjs"
+                  "name": "ProductionTrendChart"
                 },
                 "position": {
                   "basis": "400px"
@@ -748,7 +748,7 @@
               }
             ],
             "meta": {
-              "name": "FlexContainer_1"
+              "name": "ProductionTrendSection"
             },
             "position": {
               "basis": "460px"
@@ -768,7 +768,7 @@
           }
         ],
         "meta": {
-          "name": "FlexContainer"
+          "name": "MainChartsColumn"
         },
         "position": {
           "grow": 1
@@ -786,7 +786,7 @@
                 "children": [
                   {
                     "meta": {
-                      "name": "Label"
+                      "name": "AvailabilityLabel"
                     },
                     "props": {
                       "style": {
@@ -802,7 +802,7 @@
                   },
                   {
                     "meta": {
-                      "name": "Label_0"
+                      "name": "AvailabilityValue"
                     },
                     "props": {
                       "style": {
@@ -818,7 +818,7 @@
                   }
                 ],
                 "meta": {
-                  "name": "FlexContainer"
+                  "name": "AvailabilityCard"
                 },
                 "position": {
                   "basis": "104px",
@@ -845,7 +845,7 @@
                 "children": [
                   {
                     "meta": {
-                      "name": "Label"
+                      "name": "PerformanceLabel"
                     },
                     "props": {
                       "style": {
@@ -861,7 +861,7 @@
                   },
                   {
                     "meta": {
-                      "name": "Label_0"
+                      "name": "PerformanceValue"
                     },
                     "props": {
                       "style": {
@@ -877,7 +877,7 @@
                   }
                 ],
                 "meta": {
-                  "name": "FlexContainer_0"
+                  "name": "PerformanceCard"
                 },
                 "position": {
                   "basis": "104px",
@@ -904,7 +904,7 @@
                 "children": [
                   {
                     "meta": {
-                      "name": "Label"
+                      "name": "QualityLabel"
                     },
                     "props": {
                       "style": {
@@ -920,7 +920,7 @@
                   },
                   {
                     "meta": {
-                      "name": "Label_0"
+                      "name": "QualityValue"
                     },
                     "props": {
                       "style": {
@@ -936,7 +936,7 @@
                   }
                 ],
                 "meta": {
-                  "name": "FlexContainer_1"
+                  "name": "QualityCard"
                 },
                 "position": {
                   "basis": "104px",
@@ -963,7 +963,7 @@
                 "children": [
                   {
                     "meta": {
-                      "name": "Label"
+                      "name": "OEEKpiLabel"
                     },
                     "props": {
                       "style": {
@@ -979,7 +979,7 @@
                   },
                   {
                     "meta": {
-                      "name": "Label_0"
+                      "name": "OEEKpiValue"
                     },
                     "props": {
                       "style": {
@@ -995,7 +995,7 @@
                   }
                 ],
                 "meta": {
-                  "name": "FlexContainer_2"
+                  "name": "OEEKpiCard"
                 },
                 "position": {
                   "basis": "104px",
@@ -1020,7 +1020,7 @@
               }
             ],
             "meta": {
-              "name": "FlexContainer_1"
+              "name": "KPIColumn"
             },
             "position": {
               "basis": "300px",
@@ -1038,7 +1038,7 @@
           }
         ],
         "meta": {
-          "name": "FlexContainer_1"
+          "name": "RightSidebarPanel"
         },
         "position": {
           "basis": "300px",
@@ -1057,7 +1057,7 @@
       }
     ],
     "meta": {
-      "name": "root"
+      "name": "RootContainer"
     },
     "props": {
       "style": {

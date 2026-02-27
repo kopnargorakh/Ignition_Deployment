@@ -1,0 +1,55 @@
+{
+  "custom": {},
+  "params": {},
+  "props": {
+    "defaultSize": {
+      "height": 40,
+      "width": 608
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "Label"
+        },
+        "position": {
+          "height": 17,
+          "width": 228,
+          "x": 12,
+          "y": 10
+        },
+        "propConfig": {
+          "props.text": {
+            "binding": {
+              "config": {
+                "fallbackDelay": 2.5,
+                "mode": "direct",
+                "tagPath": "[System]Gateway/DeploymentMode"
+              },
+              "type": "tag"
+            }
+          }
+        },
+        "props": {
+          "style": {
+            "color": "var(--neutral-10)"
+          }
+        },
+        "type": "ia.display.label"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "style": {
+        "background": "linear-gradient(180deg, #16181D 0%, #1C1F26 100%)",
+        "gap": "16px",
+        "overflow": "auto",
+        "padding": "24px"
+      }
+    },
+    "type": "ia.container.coord"
+  }
+}

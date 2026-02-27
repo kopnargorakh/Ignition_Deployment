@@ -2,10 +2,26 @@
   "pages": {
     "/": {
       "title": "",
-      "viewPath": "OEEOverview"
+      "viewPath": "OEEOverview_v1"
     }
   },
   "sharedDocks": {
-    "cornerPriority": "top-bottom"
+    "cornerPriority": "top-bottom",
+    "top": [
+      {
+        "anchor": "fixed",
+        "autoBreakpoint": 480,
+        "content": "push",
+        "handle": "hide",
+        "iconUrl": "",
+        "id": "",
+        "modal": false,
+        "resizable": false,
+        "show": "visible",
+        "size": 40,
+        "viewParams": {},
+        "viewPath": "Header"
+      }
+    ]
   }
 }
