@@ -119,14 +119,11 @@ else
   echo "  ⚠ Warning: Could not verify gateway status"
 fi
 
-# Test 4: Database connectivity (if configured)
-echo "Test 4: Database Connectivity"
-# This would require access to Ignition's system API
-# For now, we'll skip this test
-echo "  ⚠ Database test not implemented (requires gateway API access)"
+# Wait briefly to reduce transient failures while scripts reload after deploy
+sleep 5
 
-# Test 5: Pylib and Jar Tests via WebDev endpoint
-echo "Test 5: Pylib and Jar Tests"
+# Test 4: Pylib and Jar Tests via WebDev endpoint
+echo "Test 4: Pylib and Jar Tests"
 if [ -n "$API_KEY" ]; then
   TEST_RESPONSE=$(curl -s -H "X-Ignition-API-Token: $API_KEY" "${GATEWAY_URL}/system/webdev/TestProject/api/test" 2>/dev/null)
   TEST_HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -H "X-Ignition-API-Token: $API_KEY" "${GATEWAY_URL}/system/webdev/TestProject/api/test")
