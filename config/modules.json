@@ -32,7 +32,7 @@
   },
   "com.inductiveautomation.eventstream": {
     "filename": "/usr/local/bin/ignition/user-lib/modules/EventStream-module.modl",
-    "onStartup": "enabled",
+    "onStartup": "disabled",
     "certFingerprint": "0299d53c38bdbe7ca79bd6c778a5bab884e4c813"
   },
   "com.inductiveautomation.historian": {
